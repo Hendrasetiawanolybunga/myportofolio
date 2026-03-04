@@ -132,9 +132,11 @@ body {
     0% {
         box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7);
     }
+
     70% {
         box-shadow: 0 0 0 10px rgba(40, 167, 69, 0);
     }
+
     100% {
         box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
     }
@@ -214,6 +216,23 @@ body {
 .btn-secondary:hover {
     background-color: #ffffff;
     color: #001f3f;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.btn-outline:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+/* Icon spacing inside buttons */
+.btn i {
+    margin-right: 8px;
 }
 
 /* Section Titles */
@@ -647,21 +666,21 @@ body {
     .hero-name {
         font-size: 2.8rem;
     }
-    
+
     .hero-title {
         font-size: 1.7rem;
     }
-    
+
     .contact-content {
         grid-template-columns: 1fr;
         gap: 3rem;
     }
-    
+
     .certification-content {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
-    
+
     .usp-highlight {
         text-align: center;
     }
@@ -709,33 +728,34 @@ body {
     .hero-name {
         font-size: 2.3rem;
     }
-    
+
     .hero-title {
         font-size: 1.5rem;
     }
-    
+
     .hero-description {
         font-size: 1rem;
     }
-    
+
     .hero-buttons {
         flex-direction: column;
         align-items: center;
+        width: 100%;
     }
-    
-    .btn {
-        width: 80%;
+
+    .hero-buttons .btn {
+        width: min(420px, 90%);
         text-align: center;
     }
-    
+
     .portfolio-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .skills-grid {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
-    
+
     .whatsapp-float {
         width: 50px;
         height: 50px;
@@ -743,7 +763,7 @@ body {
         bottom: 20px;
         right: 20px;
     }
-    
+
     .footer-content {
         flex-direction: column;
         text-align: center;
@@ -754,35 +774,35 @@ body {
     .container {
         padding: 0 15px;
     }
-    
+
     .hero {
         padding: 100px 0 60px;
     }
-    
+
     .profile-image {
         width: 130px;
         height: 130px;
     }
-    
+
     .hero-name {
         font-size: 2rem;
     }
-    
+
     .section-title {
         font-size: 2rem;
     }
-    
+
     .skill-card,
     .portfolio-card,
     .contact-form,
     .certification-badge {
         padding: 1.5rem;
     }
-    
+
     .usp-highlight {
         padding: 1.5rem;
     }
-    
+
     .highlight-text {
         font-size: 1rem;
     }
