@@ -867,7 +867,7 @@ section {
 
     .hero-image-wrapper {
         max-width: 100%;
-        height: 56vh; /* Dikurangi ~30% dari 80vh */
+        height: 50vh; /* Dikurangi ~30% dari 80vh */
         width: 100%;
         position: relative;
         border-radius: 185px 185px 0 0;
