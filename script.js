@@ -1,134 +1,195 @@
-// Mobile Navigation Toggle
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
-
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
-
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    navMenu.classList.remove('active');
-}));
-
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const headerOffset = 80;
-            const elementPosition = target.offsetTop;
-            const offsetPosition = elementPosition - headerOffset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
-
-// Form submission handling
-const contactForm = document.querySelector('.contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(this);
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const message = formData.get('message');
-        
-        // Simple validation
-        if (name && email && message) {
-            // In a real application, you would send this data to a server
-            alert('Thank you for your message! I will get back to you soon.');
-            this.reset();
-        } else {
-            alert('Please fill in all fields.');
-        }
-    });
-}
-
-// Add active class to navigation links based on scroll position
-window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    let current = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= (sectionTop - 200)) {
-            current = section.getAttribute('id');
-        }
-    });
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
-});
-
-// Add scroll padding for fixed header
 document.addEventListener('DOMContentLoaded', () => {
-    const headerHeight = document.querySelector('.header').offsetHeight;
-    document.documentElement.style.scrollPaddingTop = `${headerHeight}px`;
-});
 
-// Add animation to elements when they come into view
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
+    // 1. Mobile Navigation Toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Observe elements for animation
-document.addEventListener('DOMContentLoaded', () => {
-    // Add initial styles for animation
-    const animatedElements = document.querySelectorAll('.skill-card, .portfolio-card, .timeline-item');
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    });
-    
-    // Start observing
-    animatedElements.forEach(el => {
-        observer.observe(el);
-    });
-});
-
-// Header scroll effect
-let lastScrollY = window.scrollY;
-
-window.addEventListener('scroll', () => {
-    const header = document.querySelector('.header');
-    const currentScrollY = window.scrollY;
-    
-    if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        // Scrolling down
-        header.style.transform = 'translateY(-100%)';
-    } else {
-        // Scrolling up
-        header.style.transform = 'translateY(0)';
+    if (hamburger) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
     }
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+        if (hamburger) {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }
+    }));
+
+    // 2. Smooth Scrolling for Navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId.startsWith('#') && targetId.length > 1) {
+                e.preventDefault();
+                const target = document.querySelector(targetId);
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.offsetTop;
+                    const offsetPosition = elementPosition - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+
+    // 3. Scroll Spy Navigation Highlight
+    window.addEventListener('scroll', () => {
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        let current = '';
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (pageYOffset >= (sectionTop - 150)) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+
+        // Hide/Show header on scroll directional
+        const header = document.querySelector('.header');
+        if (header) {
+            const currentScrollY = window.scrollY;
+            if (currentScrollY > window.lastScrollY && currentScrollY > 100) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            window.lastScrollY = currentScrollY;
+        }
+    });
+
+    // Add scroll padding for Fixed Header
+    const headerElement = document.querySelector('.header');
+    if (headerElement) {
+        document.documentElement.style.scrollPaddingTop = `${headerElement.offsetHeight}px`;
+    }
+
+    // 4. Portfolio Tag Filtering
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const portfolioCards = document.querySelectorAll('.portfolio-card');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            const targetFilter = button.getAttribute('data-filter');
+
+            portfolioCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'scale(0.9)';
+
+                setTimeout(() => {
+                    if (targetFilter === 'all' || card.getAttribute('data-category') === targetFilter) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'scale(1)';
+                        }, 50);
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }, 300);
+            });
+        });
+    });
+
+    // 5. Vanilla Custom Modal Logic (for Certificates)
+    const certLinks = document.querySelectorAll('.cert-link');
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const closeModal = document.querySelector('.close-modal');
+
+    // Handle clicks on PDF or Image Links to show in modal
+    certLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            
+            // Allow PDF to open normally in new tab
+            if (href && href.slice(-4).toLowerCase() === '.pdf') {
+                return;
+            }
+            
+            e.preventDefault(); // Stop from navigating for images
+            
+            // Assign Image Source
+            modalImg.src = href;
+            
+            // Display Modal
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Stop background scroll
+        });
+    });
+
+    const hideModal = () => {
+        modal.classList.add('hidden');
+        document.body.style.overflow = 'auto'; // Re-enable background scroll
+        setTimeout(() => {
+            modalImg.src = ''; // Clean memory after fade trick
+        }, 300);
+    };
+
+    if (closeModal && modal) {
+        closeModal.addEventListener('click', hideModal);
+
+        // Click on background overlay to close
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                hideModal();
+            }
+        });
+
+        // ESC key to close
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                hideModal();
+            }
+        });
+    }
+
+    // 6. Dynamic Copyright Year
+    const yearSpan = document.getElementById('currentYear');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+
+    // 7. Intersection Observer for Scroll Animations
+    const fadeElements = document.querySelectorAll('.fade-in');
     
-    lastScrollY = currentScrollY;
+    // Observer Setup
+    const fadeObserverOptions = {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.1
+    };
+
+    const fadeObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                // Unobserve so animation runs once
+                observer.unobserve(entry.target);
+            }
+        });
+    }, fadeObserverOptions);
+
+    fadeElements.forEach(el => {
+        fadeObserver.observe(el);
+    });
+
 });

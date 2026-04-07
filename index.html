@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hendra Setiawan - Full-Stack Developer</title>
+    <title>Hendra Setiawan - Web Developer & Mentor</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -16,24 +16,15 @@
         <nav class="navbar">
             <div class="nav-container">
                 <div class="nav-logo">
-                    <h2>Hendra Setiawan</h2>
+                    <h2>coderNTT</h2>
                 </div>
                 <ul class="nav-menu">
-                    <li class="nav-item">
-                        <a href="#home" class="nav-link">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#skills" class="nav-link">Skills</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#portfolio" class="nav-link">Portfolio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#experience" class="nav-link">Experience</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#contact" class="nav-link">Contact</a>
-                    </li>
+                    <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+                    <li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                    <li class="nav-item"><a href="#certification" class="nav-link">Certification</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
                 <div class="hamburger">
                     <span class="bar"></span>
@@ -46,97 +37,124 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="profile-image">
-                    <img src="img/profil.png" alt="Hendra Setiawan">
-                    <div class="profile-indicator"></div>
-                </div>
-                <h1 class="hero-name">Hendra Setiawan</h1>
-                <h2 class="hero-title">Full-Stack Developer & Tech Educator</h2>
-                <p class="hero-description">
-                    Software Developer & Technical Educator with 2 years of experience in technical mentoring and
-                    backend system development. Dedicated to building efficient digital solutions and providing deep
-                    technical insights for clients.
-                </p>
+        <div class="container hero-split">
+            <!-- Kiri -->
+            <div class="hero-content fade-in">
+                <h1 class="hero-name">Hendra S. Oly Bunga S.Kom</h1>
+                <h2 class="hero-title">Menghadirkan Solusi Web Berkinerja Tinggi & Mentoring Pemrograman Berbasis
+                    Logika.</h2>
                 <div class="hero-buttons">
-                    <a href="#portfolio" class="btn btn-primary">View My Work</a>
-                    <a href="cv/CV_Hendra_Setiawan.pdf" class="btn btn-secondary" download>
-                        <i class="fa-solid fa-download"></i> Download CV
+                    <a href="https://wa.me/6282146128668?text=Halo%20Hendra,%20saya%20tertarik%20untuk%20pembuatan%20web%20UMKM"
+                        target="_blank" class="btn btn-primary">
+                        <i class="fas fa-store"></i> Konsultasi Web Bisnis
                     </a>
-                    <a href="#contact" class="btn btn-outline">Get In Touch</a>
+                </div>
+            </div>
+            <!-- Kanan -->
+            <div class="hero-image-col fade-in">
+                <div class="hero-image-wrapper">
+                    <img src="img/profil.png" alt="Hendra S. Oly Bunga S.Kom">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title fade-in">Layanan Utama</h2>
+            <div class="services-grid">
+                <!-- Kartu A -->
+                <div class="service-card fade-in">
+                    <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3>Solusi Web UMKM</h3>
+                    <p>
+                        Pembuatan website bisnis dan company profile dengan performa tinggi, responsif, dan siap
+                        membantu digitalisasi UMKM Anda untuk menjangkau lebih banyak pelanggan.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Desain Modern & Responsif</li>
+                        <li><i class="fas fa-check"></i> Optimasi Kecepatan (SEO Friendly)</li>
+                        <li><i class="fas fa-check"></i> Integrasi Media Sosial & Kontak</li>
+                    </ul>
+                </div>
+                <!-- Kartu B -->
+                <div class="service-card fade-in">
+                    <div class="service-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <h3>Mentoring & Bimbingan TA</h3>
+                    <p>
+                        Berdasarkan prinsip efisiensi akademik <strong>lulus 7 semester</strong>. Saya siap membantu
+                        kelancaran proyek & edukasi IT Anda.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Penyelesaian Bug & Eror Kode</li>
+                        <li><i class="fas fa-check"></i> Pendampingan Arsitektur Kode</li>
+                        <li><i class="fas fa-check"></i> Analisis & Penulisan Laporan</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="skills">
+    <section id="skills" class="skills bg-light">
         <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
+            <h2 class="section-title fade-in">Tech Stack & Keahlian</h2>
             <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fab fa-python"></i>
-                    </div>
-                    <h3>Django</h3>
-                    <p>Python web framework for rapid development</p>
+                <div class="skill-item fade-in">
+                    <i class="fab fa-html5 skill-icon" style="color: #E34F26;"></i>
+                    <span class="skill-name">HTML</span>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3>MySQL</h3>
-                    <p>Relational database management system</p>
+                <div class="skill-item fade-in">
+                    <i class="fab fa-css3-alt skill-icon" style="color: #1572B6;"></i>
+                    <span class="skill-name">CSS</span>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fab fa-html5"></i>
-                    </div>
-                    <h3>HTML5</h3>
-                    <p>Semantic markup for modern web applications</p>
+                <div class="skill-item fade-in">
+                    <i class="fab fa-js skill-icon" style="color: #F7DF1E;"></i>
+                    <span class="skill-name">JS Murni</span>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fab fa-css3-alt"></i>
-                    </div>
-                    <h3>CSS3</h3>
-                    <p>Styling and layout with modern techniques</p>
+                <div class="skill-item fade-in">
+                    <i class="fas fa-project-diagram skill-icon" style="color: #8E44AD;"></i>
+                    <span class="skill-name">Database Design</span>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fab fa-js"></i>
-                    </div>
-                    <h3>JavaScript</h3>
-                    <p>Interactive frontend development</p>
+                <div class="skill-item fade-in">
+                    <i class="fas fa-database skill-icon" style="color: #4479A1;"></i>
+                    <span class="skill-name">MySQL</span>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fab fa-java"></i>
-                    </div>
-                    <h3>Java</h3>
-                    <p>Intermediate level application development</p>
+                <div class="skill-item fade-in">
+                    <i class="fab fa-python skill-icon" style="color: #3776AB;"></i>
+                    <span class="skill-name">Python</span>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fab fa-laravel"></i>
-                    </div>
-                    <h3>Laravel</h3>
-                    <p>Basic to Intermediate PHP framework</p>
+                <div class="skill-item fade-in">
+                    <i class="fab fa-python skill-icon" style="color: #092E20;"></i>
+                    <span class="skill-name">Django</span>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3>Vibe Coding</h3>
-                    <p>Creative and intuitive programming approach</p>
+                <div class="skill-item fade-in">
+                    <i class="fab fa-java skill-icon" style="color: #007396;"></i>
+                    <span class="skill-name">Java</span>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-robot"></i>
+                <div class="skill-item fade-in">
+                    <i class="fas fa-sitemap skill-icon" style="color: #27AE60;"></i>
+                    <span class="skill-name">Perancangan Sistem</span>
+                </div>
+            </div>
+
+            <!-- Workflow & Methodology -->
+            <div class="methodology-section fade-in">
+                <h3 class="subsection-title">Workflow & Methodology</h3>
+                <div class="methodology-grid">
+                    <div class="methodology-card">
+                        <div class="methodology-icon"><i class="fas fa-brain"></i></div>
+                        <h4>Prompt Engineering</h4>
+                        <p>Menggunakan AI bukan sebagai budak generator, melainkan sebagai mitra diskusi kolaboratif
+                            untuk pemecahan masalah.</p>
                     </div>
-                    <h3>Prompt Engineering</h3>
-                    <p>AI interaction and prompt optimization</p>
+                    <div class="methodology-card">
+                        <div class="methodology-icon"><i class="fas fa-hourglass-half"></i></div>
+                        <h4>Time Management</h4>
+                        <p>Kedisiplinan tinggi dengan prinsip absolut <strong>"Utamakan Kebutuhan Daripada
+                                Keinginan"</strong> (Fokus pada MVP dan efisiensi kode).</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -145,43 +163,58 @@
     <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio">
         <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
+            <h2 class="section-title fade-in">Featured Projects</h2>
+
+            <!-- Portfolio Filter Tabs -->
+            <div class="portfolio-filters fade-in">
+                <button class="filter-btn active" data-filter="all">Semua</button>
+                <button class="filter-btn" data-filter="web-bisnis">Web Bisnis</button>
+                <button class="filter-btn" data-filter="studi-kasus">Studi Kasus Akademik</button>
+            </div>
+
             <div class="portfolio-grid">
-                <div class="portfolio-card">
+                <!-- Web Bisnis 1 -->
+                <div class="portfolio-card fade-in" data-category="web-bisnis">
                     <div class="portfolio-image">
                         <img src="img/penyewaan.jpeg" alt="Sistem Penyewaan Perlengkapan Acara">
                     </div>
                     <div class="portfolio-content">
+                        <span class="badge">Web Bisnis</span>
                         <h3>Sistem Penyewaan Perlengkapan Acara</h3>
-                        <p>Rentals management system for event equipment with inventory tracking and booking management.
-                        </p>
+                        <p>Aplikasi manajemen rental untuk inventaris dan pelacakan booking (Sewa perlengkapan).</p>
                         <a href="https://coderntt2.pythonanywhere.com/" target="_blank"
                             class="portfolio-link btn btn-primary">
                             View Demo
                         </a>
                     </div>
                 </div>
-                <div class="portfolio-card">
+
+                <!-- Web Bisnis 2 -->
+                <div class="portfolio-card fade-in" data-category="web-bisnis">
                     <div class="portfolio-image">
                         <img src="img/air minum.jpeg" alt="Sistem Penjualan & Distribusi Air Minum">
                     </div>
                     <div class="portfolio-content">
+                        <span class="badge">Web Bisnis</span>
                         <h3>Sistem Penjualan & Distribusi Air Minum</h3>
-                        <p>Water sales and distribution management system with route optimization and customer tracking.
-                        </p>
+                        <p>Sistem manajemen agen penjualan dengan rute optimasi dan pelacakan pelanggan.</p>
                         <a href="https://coderntt1.pythonanywhere.com/" target="_blank"
                             class="portfolio-link btn btn-primary">
                             View Demo
                         </a>
                     </div>
                 </div>
-                <div class="portfolio-card">
+
+                <!-- Studi Kasus Akademik -->
+                <div class="portfolio-card fade-in" data-category="studi-kasus">
                     <div class="portfolio-image">
                         <img src="img/sistem pakar.jpeg" alt="Sistem Pakar Diagnosis Stunting">
                     </div>
                     <div class="portfolio-content">
+                        <span class="badge">Studi Kasus Akademik</span>
                         <h3>Sistem Pakar Diagnosis Stunting</h3>
-                        <p>Expert system application with decision-making algorithms and knowledge base management.</p>
+                        <p>Aplikasi implementasi sistem pakar (Expert System) dengan algoritma diagnosa penentu gizi.
+                        </p>
                         <a href="https://marshadotcom.pythonanywhere.com/" target="_blank"
                             class="portfolio-link btn btn-primary">
                             View Demo
@@ -193,42 +226,135 @@
     </section>
 
     <!-- Certification Section -->
-    <section id="certification" class="certification">
+    <section id="certification" class="certification bg-light">
         <div class="container">
-            <h2 class="section-title">Certification & Education</h2>
-            <div class="certification-content">
-                <div class="certification-badge">
-                    <div class="badge-icon">
-                        <i class="fas fa-graduation-cap"></i>
+            <h2 class="section-title fade-in">Sertifikasi & Penghargaan</h2>
+
+            <!-- Horizontal Scroll Container -->
+            <div class="certifications-slider fade-in">
+                <!-- Sertifikat 1 -->
+                <div class="cert-card">
+                    <div class="cert-image">
+                        <img src="img/sertifikat/1.jpeg" alt="Alumni Coding Camp DBS Foundation 2025"
+                            onerror="this.src='https://via.placeholder.com/400x250?text=Sertifikat+1'">
                     </div>
-                    <h3>Alumni Coding Camp DBS Foundation 2025</h3>
-                    <p>Advanced programming and software development certification program</p>
-                    <a href="img/DOC-20250708-WA0027..pdf" target="_blank" class="btn btn-primary">
-                        View Certificate
-                    </a>
+                    <div class="cert-content">
+                        <h3>Alumni Coding Camp DBS Foundation 2025</h3>
+                        <a href="img/DOC-20250708-WA0027..pdf" target="_blank" class="cert-link">Lihat Detail <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
-                <div class="usp-highlight">
-                    <h3>Tech Mentorship Service</h3>
-                    <p class="highlight-text">Tech Transparency: Anda tidak hanya menerima produk jadi, tetapi saya akan
-                        membimbing Anda memahami alur logika sistem yang dibangun.</p>
+                <!-- Sertifikat 2 -->
+                <div class="cert-card">
+                    <div class="cert-image">
+                        <img src="img/sertifikat/2.jpeg" alt="Sertifikat Asisten Dosen 1"
+                            onerror="this.src='https://via.placeholder.com/400x250?text=Sertifikat+Asisten+Dosen+1'">
+                    </div>
+                    <div class="cert-content">
+                        <h3>Penghargaan Asisten Dosen Semester Ganjil</h3>
+                        <a href="img/sertifikat/2.jpeg" class="cert-link">Lihat Detail <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
+                <!-- Sertifikat 3 -->
+                <div class="cert-card">
+                    <div class="cert-image">
+                        <img src="img/sertifikat/3.jpeg" alt="Sertifikat Asisten Dosen 2"
+                            onerror="this.src='https://via.placeholder.com/400x250?text=Sertifikat+Asisten+Dosen+2'">
+                    </div>
+                    <div class="cert-content">
+                        <h3>Penghargaan Asisten Dosen Semester Genap</h3>
+                        <a href="img/sertifikat/3.jpeg" class="cert-link">Lihat Detail <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- Sertifikat 4 -->
+                <div class="cert-card">
+                    <div class="cert-image">
+                        <img src="img/sertifikat/4.jpeg" alt="Penghargaan Mahasiswa Berprestasi"
+                            onerror="this.src='https://via.placeholder.com/400x250?text=Penghargaan+Mahasiswa+Berprestasi'">
+                    </div>
+                    <div class="cert-content">
+                        <h3>Penghargaan Mahasiswa Berprestasi</h3>
+                        <a href="img/sertifikat/4.jpeg" class="cert-link">Lihat Detail <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cert-cta fade-in">
+                <a href="https://drive.google.com/drive/folders/1fpKA9Exn_c2ZJ2vLLWM3x5eYT-dPwbZq?usp=sharing"
+                    target="_blank" class="btn btn-outline">
+                    <i class="fas fa-external-link-alt"></i> Lihat Semua 15+ Sertifikat
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
+    <!-- Experience & Education Section -->
     <section id="experience" class="experience">
         <div class="container">
-            <h2 class="section-title">Professional Experience</h2>
+            <h2 class="section-title fade-in">Experience & Education</h2>
             <div class="timeline">
-                <div class="timeline-item">
+                <!-- Pengalaman Pekerjaan / Freelance -->
+                <div class="timeline-item fade-in">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Freelance Web Developer & Programming Mentor</h3>
+                        <div class="timeline-duration">Present</div>
+                        <p>Mengembangkan website fungsional untuk UMKM serta secara aktif membuka jasa konsultasi
+                            (mentoring) pemrograman mahasiswa untuk membantu kelulusan tepat waktu.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <h3>Teaching Assistant (Asisten Dosen)</h3>
-                        <div class="timeline-duration">2 Years</div>
-                        <p>Responsible for mentoring students in programming logic, reviewing code, and managing
-                            laboratory sessions. Provided guidance on software development best practices and helped
-                            students build practical programming skills.</p>
+                        <div class="timeline-duration">2 Tahun</div>
+                        <p>Membimbing dan memantau ratusan mahasiswa praktikum mengenai logika struktur program,
+                            optimasi penulisan sintaks program, dan tata evaluasi laboratorium.</p>
+                    </div>
+                </div>
+
+                <!-- History Edukasi -->
+                <div class="timeline-item fade-in">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>UNIVERSITAS KATOLIK WIDYA MANDIRA (Kupang)</h3>
+                        <div class="timeline-duration">Periode masuk 2022 Ganjil - Lulus 2025 Ganjil</div>
+                        <p>Berhasil Lulus cepat dalam 7 semester melalui implementasi riset IT dan penguasaan
+                            teknik-teknik fundamental rekayasa perangkat lunak.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>SMA N 1 LIAE (Sabu Raijua)</h3>
+                        <div class="timeline-duration">Pendidikan Menengah Atas</div>
+                        <p>Pengembangan pola pikir analitis dan pemecahan masalah yang menjadi fondasi awal ketertarikan
+                            pada ilmu komputer.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>SMP N 1 LIAE (Sabu Raijua)</h3>
+                        <div class="timeline-duration">Pendidikan Menengah Pertama</div>
+                        <p>Fase pembentukan kedisiplinan belajar mandiri dan pengenalan terhadap dasar-dasar logika
+                            terstruktur.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>SD GMIT RAEKORE (Sabu Raijua)</h3>
+                        <div class="timeline-duration">Pendidikan Dasar</div>
+                        <p>Pembentukan karakter dasar, etos kerja, dan penanaman prinsip efisiensi yang terbawa hingga
+                            dunia profesional.</p>
                     </div>
                 </div>
             </div>
@@ -236,37 +362,27 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section id="contact" class="contact bg-light">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
+            <h2 class="section-title fade-in">Mari Berkolaborasi!</h2>
+            <div class="contact-content fade-in">
                 <div class="contact-info">
-                    <h3>Let's Connect</h3>
-                    <p>I'm always interested in new opportunities and collaborations. Feel free to reach out!</p>
+                    <p>Tertarik untuk menggunakan jasa pembuatan web bisnis atau bimbingan pemrograman? Hubungi saya
+                        secepatnya!</p>
                     <div class="social-links">
-                        <a href="https://www.linkedin.com/in/hendra-setiawan17" target="_blank" class="social-link">
-                            <i class="fab fa-linkedin"></i>
-                            <span>LinkedIn</span>
-                        </a>
-                        <a href="https://github.com/Hendrasetiawanolybunga" target="_blank" class="social-link">
-                            <i class="fab fa-github"></i>
-                            <span>GitHub</span>
-                        </a>
-                        <a href="mailto:setia170104@gmail.com" class="social-link">
-                            <i class="fas fa-envelope"></i>
-                            <span>Email</span>
-                        </a>
-                        <a href="https://wa.me/6282146128668" target="_blank" class="social-link">
-                            <i class="fab fa-whatsapp"></i>
-                            <span>WhatsApp</span>
-                        </a>
+                        <a href="https://www.linkedin.com/in/hendra-setiawan17" target="_blank" class="social-link"><i
+                                class="fab fa-linkedin"></i><span>LinkedIn</span></a>
+                        <a href="https://github.com/Hendrasetiawanolybunga" target="_blank" class="social-link"><i
+                                class="fab fa-github"></i><span>GitHub</span></a>
+                        <a href="https://www.instagram.com/hendrabunga1?igsh=MXVxM2tkZWgwMnllNw==" target="_blank"
+                            class="social-link"><i class="fab fa-instagram"></i><span>Instagram</span></a>
                     </div>
                 </div>
                 <div class="whatsapp-cta">
-                    <a href="https://wa.me/6282146128668?text=Halo%20Hendra,%20saya%20melihat%20portofolio%20Anda%20dan%20tertarik%20untuk%20berdiskusi%20terkait%20proyek%20website."
+                    <a href="https://wa.me/6282146128668?text=Halo%20Hendra,%20saya%20tertarik%20untuk%20berdiskusi%20lebih%20lanjut%20mengenai%20layanan%20Anda."
                         target="_blank" class="btn btn-whatsapp">
                         <i class="fab fa-whatsapp"></i>
-                        <span>Konsultasi Proyek & Mentoring - Balasan Cepat via WhatsApp</span>
+                        <span>Diskusi Langsung via WhatsApp</span>
                     </a>
                 </div>
             </div>
@@ -282,15 +398,16 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <p>&copy; 2024 Hendra Setiawan. All rights reserved.</p>
-                <div class="footer-contact">
-                    <a href="https://wa.me/6282146128668" target="_blank" class="btn btn-secondary">
-                        <i class="fab fa-whatsapp"></i> Contact Me via WA
-                    </a>
-                </div>
+                <p>&copy; <span id="currentYear"></span> Hendra Setiawan. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+    <!-- MODAL VANILLA UNTUK SERTIFIKAT -->
+    <div id="imageModal" class="modal-overlay hidden">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
 
     <script src="script.js"></script>
 </body>
