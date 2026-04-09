@@ -671,32 +671,28 @@ section {
 }
 
 /* =========== CERTIFICATION SECTION =========== */
+.cert-slider-wrapper {
+    position: relative;
+}
+
 .certifications-slider {
     display: flex;
     overflow-x: auto;
-    gap: 20px;
-    padding: 20px 5px 40px;
+    gap: 24px;
+    padding: 20px 10px 30px;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
 }
 
 .certifications-slider::-webkit-scrollbar {
-    height: 8px;
+    display: none;
 }
 
-.certifications-slider::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 4px;
-}
-
-.certifications-slider::-webkit-scrollbar-thumb {
-    background: var(--text-light);
-    border-radius: 4px;
-}
-
+/* [1] 3D Tilt card */
 .cert-card {
     min-width: 300px;
-    max-width: 340px;
+    max-width: 320px;
     flex: 0 0 auto;
     background: var(--white);
     border-radius: var(--border-radius);
@@ -704,11 +700,42 @@ section {
     scroll-snap-align: start;
     display: flex;
     flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transition: box-shadow 0.3s ease;
+    will-change: transform;
 }
+
+.cert-card:hover {
+    box-shadow: 0 20px 40px rgba(10, 25, 47, 0.18);
+}
+
+/* [2] Ribbon Badge */
+.cert-ribbon {
+    position: absolute;
+    top: 18px;
+    left: -30px;
+    width: 130px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 5px 0;
+    transform: rotate(-45deg);
+    z-index: 10;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.cert-ribbon.ribbon-gold  { background-color: var(--secondary-color); }
+.cert-ribbon.ribbon-green { background-color: #27AE60; }
 
 .cert-image {
     height: 220px;
-    border-bottom: 1px solid #eee;
+    position: relative;
+    overflow: hidden;
 }
 
 .cert-image img {
@@ -716,35 +743,95 @@ section {
     height: 100%;
     object-fit: cover;
     border-radius: var(--border-radius) var(--border-radius) 0 0;
+    transition: transform 0.4s ease;
 }
 
-.cert-content {
-    padding: 20px;
+.cert-card:hover .cert-image img {
+    transform: scale(1.06);
+}
+
+/* [3] Hover Overlay */
+.cert-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 25, 47, 0.6);
     display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(2px);
 }
 
-.cert-content h3 {
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-    color: var(--dark-color);
+.cert-card:hover .cert-overlay {
+    opacity: 1;
 }
 
-.cert-link {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 600;
+.cert-overlay-btn {
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    padding: 10px 22px;
+    background: var(--white);
+    color: var(--primary-color);
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
     cursor: pointer;
+    text-decoration: none;
+    transform: translateY(10px);
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.cert-card:hover .cert-overlay-btn {
+    transform: translateY(0);
+}
+
+.cert-overlay-btn:hover {
+    background: var(--secondary-color);
+    color: var(--white);
+}
+
+.cert-content {
+    padding: 18px 20px;
+    flex-grow: 1;
+}
+
+.cert-content h3 {
+    font-size: 1rem;
+    color: var(--dark-color);
+    line-height: 1.4;
+}
+
+/* [4] Scroll Dots */
+.cert-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.cert-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #ccc;
+    cursor: pointer;
+    transition: background-color 0.3s ease, width 0.3s ease;
+    border: none;
+    padding: 0;
+}
+
+.cert-dot.active {
+    background-color: var(--primary-color);
+    width: 24px;
+    border-radius: 4px;
 }
 
 .cert-cta {
     text-align: center;
-    margin-top: 10px;
+    margin-top: 30px;
 }
 
 /* =========== VANILLA JS MODAL SYSTEM =========== */

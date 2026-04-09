@@ -200,23 +200,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // =============================================
-    // 5. Vanilla Modal for Certificates
+    // 5. Vanilla Modal + Cert Overlay + Tilt + Dots
     // =============================================
-    const certLinks = document.querySelectorAll('.cert-link');
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImage');
     const closeModal = document.querySelector('.close-modal');
-
-    certLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            const href = link.getAttribute('href');
-            if (href && href.slice(-4).toLowerCase() === '.pdf') return;
-            e.preventDefault();
-            modalImg.src = href;
-            modal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        });
-    });
 
     const hideModal = () => {
         modal.classList.add('hidden');
@@ -224,11 +212,64 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => { modalImg.src = ''; }, 300);
     };
 
+    // Overlay "Lihat" button — image type
+    document.querySelectorAll('.open-modal-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const card = btn.closest('.cert-card');
+            const href = card.getAttribute('data-href');
+            modalImg.src = href;
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
     if (closeModal && modal) {
         closeModal.addEventListener('click', hideModal);
         modal.addEventListener('click', (e) => { if (e.target === modal) hideModal(); });
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && !modal.classList.contains('hidden')) hideModal();
+        });
+    }
+
+    // [1] 3D Tilt on cert cards
+    document.querySelectorAll('.cert-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const rotateX = ((y - rect.height / 2) / rect.height) * -8;
+            const rotateY = ((x - rect.width  / 2) / rect.width)  *  8;
+            card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) scale(1)';
+        });
+    });
+
+    // [4] Cert Slider Dots
+    const certSlider = document.getElementById('certSlider');
+    const certDotsContainer = document.getElementById('certDots');
+
+    if (certSlider && certDotsContainer) {
+        const certCards = certSlider.querySelectorAll('.cert-card');
+
+        certCards.forEach((_, i) => {
+            const dot = document.createElement('button');
+            dot.classList.add('cert-dot');
+            if (i === 0) dot.classList.add('active');
+            dot.setAttribute('aria-label', `Sertifikat ${i + 1}`);
+            dot.addEventListener('click', () => {
+                certCards[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+            });
+            certDotsContainer.appendChild(dot);
+        });
+
+        const dots = certDotsContainer.querySelectorAll('.cert-dot');
+
+        certSlider.addEventListener('scroll', () => {
+            const cardWidth = certCards[0].offsetWidth + 24;
+            const activeIndex = Math.round(certSlider.scrollLeft / cardWidth);
+            dots.forEach((d, i) => d.classList.toggle('active', i === activeIndex));
         });
     }
 
