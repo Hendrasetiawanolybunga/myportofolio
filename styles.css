@@ -491,64 +491,111 @@ section {
     font-size: 0.95rem;
 }
 
-/* Workflow & Methodology */
+/* =========== WORKFLOW & METHODOLOGY — GLASSMORPHISM =========== */
 .methodology-section {
     margin-top: 60px;
+    /* [A] Dark gradient background untuk section ini */
+    background: linear-gradient(135deg, var(--primary-color) 0%, #0d2137 100%);
+    border-radius: 20px;
+    padding: 50px 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle dot pattern overlay */
+.methodology-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 28px 28px;
+    pointer-events: none;
 }
 
 .subsection-title {
     font-size: 1.6rem;
     font-weight: 700;
     text-align: center;
-    color: var(--dark-color);
+    color: var(--white);
     margin-bottom: 30px;
 }
 
 .methodology-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
+    position: relative;
+    z-index: 1;
 }
 
+/* [A] Glassmorphism card */
 .methodology-card {
-    background-color: var(--white);
-    padding: 35px 25px;
-    border-radius: var(--border-radius);
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    padding: 36px 28px;
     text-align: center;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-    border-bottom: 4px solid var(--primary-color);
-}
-
-.methodology-card:nth-child(2) {
-    border-bottom-color: var(--secondary-color);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .methodology-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
+    transform: translateY(-6px);
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.3);
 }
 
+/* [B] Nomor besar transparan di background */
+.method-number {
+    position: absolute;
+    top: -10px;
+    right: 16px;
+    font-size: 5rem;
+    font-weight: 900;
+    color: rgba(255,255,255,0.06);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+    letter-spacing: -2px;
+}
+
+/* [C] Icon pulse on hover */
 .methodology-icon {
     font-size: 2.5rem;
-    color: var(--primary-color);
+    color: var(--secondary-color);
     margin-bottom: 20px;
+    display: inline-block;
+    transition: transform 0.3s ease;
 }
 
-.methodology-card:nth-child(2) .methodology-icon {
-    color: var(--secondary-color);
+.methodology-card:hover .methodology-icon {
+    animation: iconPulse 0.6s ease;
+}
+
+@keyframes iconPulse {
+    0%   { transform: scale(1); }
+    40%  { transform: scale(1.3); }
+    70%  { transform: scale(0.9); }
+    100% { transform: scale(1); }
 }
 
 .methodology-card h4 {
-    font-size: 1.3rem;
-    color: var(--dark-color);
-    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: var(--white);
+    margin-bottom: 12px;
 }
 
 .methodology-card p {
-    color: var(--text-light);
-    font-size: 0.95rem;
+    color: rgba(255,255,255,0.7);
+    font-size: 0.92rem;
     line-height: 1.6;
+}
+
+.methodology-card p strong {
+    color: var(--secondary-color);
 }
 
 /* =========== PORTFOLIO SECTION =========== */
@@ -1068,54 +1115,142 @@ section {
     .tl-right:not(.tl-empty)::before { display: none; }
 }
 
-/* =========== CONTACT SECTION & FOOTER =========== */
-.contact-content {
-    max-width: 800px;
-    margin: 0 auto;
+/* =========== CONTACT — DARK HERO CTA =========== */
+/* [D] Dark section */
+.contact-dark {
+    background-color: var(--primary-color);
+    position: relative;
+    overflow: hidden;
     text-align: center;
+    padding: 100px 0;
 }
 
-.contact-info p {
-    margin-bottom: 30px;
-    font-size: 1.1rem;
-    color: var(--text-light);
+/* [E] Animated aurora gradient background */
+.contact-aurora {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 20% 50%, rgba(243,156,18,0.12) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(100,181,246,0.1) 0%, transparent 55%),
+                radial-gradient(ellipse at 60% 80%, rgba(39,174,96,0.08) 0%, transparent 50%);
+    background-size: 200% 200%;
+    animation: auroraShift 8s ease-in-out infinite alternate;
+    pointer-events: none;
 }
 
-.social-links {
+@keyframes auroraShift {
+    0%   { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+/* [G] Availability Badge */
+.availability-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(39,174,96,0.15);
+    border: 1px solid rgba(39,174,96,0.4);
+    color: #2ecc71;
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 6px 16px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.avail-dot {
+    width: 8px;
+    height: 8px;
+    background: #2ecc71;
+    border-radius: 50%;
+    animation: availPulse 1.5s ease-in-out infinite;
+    flex-shrink: 0;
+}
+
+@keyframes availPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(46,204,113,0.5); }
+    50%       { box-shadow: 0 0 0 6px rgba(46,204,113,0); }
+}
+
+.contact-title {
+    color: var(--white) !important;
+}
+
+.contact-title::after {
+    background-color: var(--secondary-color) !important;
+}
+
+.contact-subtitle {
+    color: rgba(255,255,255,0.65);
+    font-size: 1rem;
+    max-width: 520px;
+    margin: 0 auto 40px;
+    line-height: 1.7;
+}
+
+/* [F] Social Link Cards */
+.social-cards {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    margin-bottom: 40px;
+    gap: 16px;
     flex-wrap: wrap;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
 }
 
-.social-link {
+.social-card {
     display: flex;
+    flex-direction: column;
     align-items: center;
     gap: 10px;
-    padding: 12px 25px;
-    background-color: var(--white);
-    color: var(--text-color);
-    border-radius: 50px;
+    padding: 24px 32px;
+    border-radius: 16px;
     text-decoration: none;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-    font-weight: 500;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--white);
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(8px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    min-width: 110px;
 }
 
-.social-link i {
-    font-size: 1.2rem;
-    color: var(--primary-color);
+.social-card i {
+    font-size: 2rem;
+    transition: transform 0.3s ease;
 }
 
-.social-link:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-hover);
-    color: var(--primary-color);
+.social-card:hover {
+    transform: translateY(-6px);
 }
 
-/* Instagram specific gradient color */
-.social-link i.fa-instagram {
+.social-card:hover i {
+    transform: scale(1.15);
+}
+
+/* Brand colors on hover */
+.social-linkedin:hover {
+    background: rgba(0,119,181,0.3);
+    box-shadow: 0 8px 24px rgba(0,119,181,0.3);
+    border-color: rgba(0,119,181,0.5);
+}
+
+.social-github:hover {
+    background: rgba(255,255,255,0.15);
+    box-shadow: 0 8px 24px rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.3);
+}
+
+.social-instagram:hover {
+    background: rgba(225,48,108,0.25);
+    box-shadow: 0 8px 24px rgba(225,48,108,0.25);
+    border-color: rgba(225,48,108,0.4);
+}
+
+.social-instagram i {
     background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1123,6 +1258,8 @@ section {
 
 .whatsapp-cta {
     display: inline-block;
+    position: relative;
+    z-index: 1;
 }
 
 .whatsapp-float {
