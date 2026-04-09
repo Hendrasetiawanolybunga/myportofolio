@@ -889,63 +889,183 @@ section {
     }
 }
 
-/* =========== EXPERIENCE & EDUCATION SECTION =========== */
-.timeline {
+/* =========== EXPERIENCE & EDUCATION — SPLIT TIMELINE =========== */
+.timeline-split {
     position: relative;
-    max-width: 800px;
+    max-width: 960px;
     margin: 0 auto;
 }
 
-.timeline::before {
-    content: '';
+/* [3] Garis tengah + animated fill */
+.timeline-center-line {
     position: absolute;
-    left: 20px;
+    left: 50%;
     top: 0;
     bottom: 0;
     width: 3px;
-    background-color: var(--primary-color);
-    opacity: 0.3;
+    background: rgba(10, 25, 47, 0.1);
+    transform: translateX(-50%);
+    border-radius: 3px;
+    overflow: hidden;
 }
 
-.timeline-item {
-    position: relative;
-    padding-left: 60px;
+.timeline-line-fill {
+    width: 100%;
+    height: 0%;
+    background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+    border-radius: 3px;
+    transition: height 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* [1] Setiap baris split kiri-kanan */
+.timeline-row {
+    display: grid;
+    grid-template-columns: 1fr 60px 1fr;
+    align-items: center;
+    gap: 0;
     margin-bottom: 40px;
+    position: relative;
 }
 
-.timeline-item:last-child {
-    margin-bottom: 0;
-}
+.timeline-row:last-child { margin-bottom: 0; }
 
-.timeline-marker {
-    position: absolute;
-    left: 11px;
-    top: 5px;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: var(--primary-color);
-    border: 4px solid var(--white);
-    box-shadow: 0 0 0 4px var(--primary-color);
-}
-
-.timeline-content {
-    background-color: var(--white);
-    padding: 30px;
+/* Card kiri & kanan */
+.tl-card {
+    background: var(--white);
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
+    padding: 24px 28px;
+    position: relative;
+    /* [5] Hover expand */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.timeline-content h3 {
+.tl-card:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: var(--shadow-hover);
+}
+
+.tl-card.tl-empty {
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+}
+
+.tl-card.tl-empty:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+/* Arrow connector kiri → tengah */
+.tl-left:not(.tl-empty)::after {
+    content: '';
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 10px solid transparent;
+    border-left-color: var(--white);
+    filter: drop-shadow(2px 0 2px rgba(0,0,0,0.06));
+}
+
+/* Arrow connector kanan ← tengah */
+.tl-right:not(.tl-empty)::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 10px solid transparent;
+    border-right-color: var(--white);
+    filter: drop-shadow(-2px 0 2px rgba(0,0,0,0.06));
+}
+
+/* [2] Icon Badge di tengah */
+.tl-badge {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    color: var(--white);
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    flex-shrink: 0;
+}
+
+.badge-work   { background: var(--primary-color); }
+.badge-edu    { background: var(--secondary-color); }
+.badge-school { background: #27AE60; }
+
+/* [4] Category Chip */
+.tl-chip {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.chip-work   { background: rgba(10, 25, 47, 0.08);  color: var(--primary-color); }
+.chip-edu    { background: rgba(243, 156, 18, 0.12); color: var(--secondary-color-dark); }
+.chip-school { background: rgba(39, 174, 96, 0.1);  color: #1e8449; }
+
+.tl-card h3 {
+    font-size: 1rem;
     color: var(--dark-color);
-    margin-bottom: 5px;
+    margin-bottom: 6px;
+    line-height: 1.4;
 }
 
-.timeline-duration {
+.tl-duration {
     color: var(--primary-color);
     font-weight: 600;
-    margin-bottom: 15px;
+    font-size: 0.82rem;
+    margin-bottom: 10px;
+}
+
+.tl-card p {
+    color: var(--text-light);
     font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Mobile — kembali ke single column */
+@media screen and (max-width: 768px) {
+    .timeline-center-line { left: 24px; }
+
+    .timeline-row {
+        grid-template-columns: 48px 1fr;
+        grid-template-rows: auto;
+        gap: 0 16px;
+    }
+
+    .tl-badge {
+        grid-column: 1;
+        grid-row: 1;
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+    }
+
+    .tl-card.tl-left:not(.tl-empty),
+    .tl-card.tl-right:not(.tl-empty) {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .tl-card.tl-empty { display: none; }
+
+    .tl-left:not(.tl-empty)::after,
+    .tl-right:not(.tl-empty)::before { display: none; }
 }
 
 /* =========== CONTACT SECTION & FOOTER =========== */

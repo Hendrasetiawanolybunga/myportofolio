@@ -357,61 +357,101 @@
     <section id="experience" class="experience">
         <div class="container">
             <h2 class="section-title fade-in">Experience & Education</h2>
-            <div class="timeline">
-                <div class="timeline-item fade-in">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
+
+            <!-- [3] Animated line draw via JS observer -->
+            <div class="timeline-split" id="timelineSplit">
+
+                <!-- Garis tengah -->
+                <div class="timeline-center-line">
+                    <div class="timeline-line-fill" id="timelineLineFill"></div>
+                </div>
+
+                <!-- Item 1 — KIRI — Pekerjaan -->
+                <div class="timeline-row fade-in">
+                    <div class="tl-card tl-left">
+                        <!-- [4] Category chip -->
+                        <span class="tl-chip chip-work">Pekerjaan</span>
                         <h3>Freelance Web Developer & Programming Mentor</h3>
-                        <div class="timeline-duration">Present</div>
-                        <p>Mengembangkan website fungsional untuk UMKM serta secara aktif membuka jasa konsultasi
-                            (mentoring) pemrograman mahasiswa untuk membantu kelulusan tepat waktu.</p>
+                        <div class="tl-duration">Present</div>
+                        <p>Mengembangkan website fungsional untuk UMKM serta aktif membuka jasa mentoring pemrograman mahasiswa untuk membantu kelulusan tepat waktu.</p>
                     </div>
+                    <!-- [2] Icon Badge -->
+                    <div class="tl-badge badge-work">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="tl-card tl-right tl-empty"></div>
                 </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
+
+                <!-- Item 2 — KANAN — Pekerjaan -->
+                <div class="timeline-row fade-in">
+                    <div class="tl-card tl-left tl-empty"></div>
+                    <div class="tl-badge badge-work">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="tl-card tl-right">
+                        <span class="tl-chip chip-work">Pekerjaan</span>
                         <h3>Teaching Assistant (Asisten Dosen)</h3>
-                        <div class="timeline-duration">2 Tahun</div>
-                        <p>Membimbing dan memantau ratusan mahasiswa praktikum mengenai logika struktur program,
-                            optimasi penulisan sintaks program, dan tata evaluasi laboratorium.</p>
+                        <div class="tl-duration">2 Tahun</div>
+                        <p>Membimbing ratusan mahasiswa praktikum mengenai logika struktur program, optimasi sintaks, dan tata evaluasi laboratorium.</p>
                     </div>
                 </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h3>UNIVERSITAS KATOLIK WIDYA MANDIRA (Kupang)</h3>
-                        <div class="timeline-duration">Periode masuk 2022 Ganjil - Lulus 2025 Ganjil</div>
-                        <p>Berhasil Lulus cepat dalam 7 semester melalui implementasi riset IT dan penguasaan
-                            teknik-teknik fundamental rekayasa perangkat lunak.</p>
+
+                <!-- Item 3 — KIRI — Pendidikan Tinggi -->
+                <div class="timeline-row fade-in">
+                    <div class="tl-card tl-left">
+                        <span class="tl-chip chip-edu">Pendidikan Tinggi</span>
+                        <h3>UNIVERSITAS KATOLIK WIDYA MANDIRA</h3>
+                        <div class="tl-duration">2022 Ganjil — 2025 Ganjil</div>
+                        <p>Lulus cepat 7 semester melalui implementasi riset IT dan penguasaan teknik fundamental rekayasa perangkat lunak.</p>
                     </div>
+                    <div class="tl-badge badge-edu">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="tl-card tl-right tl-empty"></div>
                 </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
+
+                <!-- Item 4 — KANAN — Pendidikan Menengah -->
+                <div class="timeline-row fade-in">
+                    <div class="tl-card tl-left tl-empty"></div>
+                    <div class="tl-badge badge-school">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="tl-card tl-right">
+                        <span class="tl-chip chip-school">Pendidikan Menengah</span>
                         <h3>SMA N 1 LIAE (Sabu Raijua)</h3>
-                        <div class="timeline-duration">Pendidikan Menengah Atas</div>
-                        <p>Pengembangan pola pikir analitis dan pemecahan masalah yang menjadi fondasi awal ketertarikan
-                            pada ilmu komputer.</p>
+                        <div class="tl-duration">Pendidikan Menengah Atas</div>
+                        <p>Pengembangan pola pikir analitis dan pemecahan masalah sebagai fondasi awal ketertarikan pada ilmu komputer.</p>
                     </div>
                 </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
+
+                <!-- Item 5 — KIRI — Pendidikan Menengah -->
+                <div class="timeline-row fade-in">
+                    <div class="tl-card tl-left">
+                        <span class="tl-chip chip-school">Pendidikan Menengah</span>
                         <h3>SMP N 1 LIAE (Sabu Raijua)</h3>
-                        <div class="timeline-duration">Pendidikan Menengah Pertama</div>
-                        <p>Fase pembentukan kedisiplinan belajar mandiri dan pengenalan terhadap dasar-dasar logika
-                            terstruktur.</p>
+                        <div class="tl-duration">Pendidikan Menengah Pertama</div>
+                        <p>Pembentukan kedisiplinan belajar mandiri dan pengenalan dasar-dasar logika terstruktur.</p>
                     </div>
+                    <div class="tl-badge badge-school">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="tl-card tl-right tl-empty"></div>
                 </div>
-                <div class="timeline-item fade-in">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
+
+                <!-- Item 6 — KANAN — Pendidikan Dasar -->
+                <div class="timeline-row fade-in">
+                    <div class="tl-card tl-left tl-empty"></div>
+                    <div class="tl-badge badge-school">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="tl-card tl-right">
+                        <span class="tl-chip chip-school">Pendidikan Dasar</span>
                         <h3>SD GMIT RAEKORE (Sabu Raijua)</h3>
-                        <div class="timeline-duration">Pendidikan Dasar</div>
-                        <p>Pembentukan karakter dasar, etos kerja, dan penanaman prinsip efisiensi yang terbawa hingga
-                            dunia profesional.</p>
+                        <div class="tl-duration">Pendidikan Dasar</div>
+                        <p>Pembentukan karakter dasar, etos kerja, dan penanaman prinsip efisiensi yang terbawa hingga dunia profesional.</p>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>

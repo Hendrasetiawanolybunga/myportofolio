@@ -293,4 +293,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
 
+    // =============================================
+    // [3] Animated Timeline Line Draw
+    // =============================================
+    const lineFill = document.getElementById('timelineLineFill');
+    const timelineSplit = document.getElementById('timelineSplit');
+
+    if (lineFill && timelineSplit) {
+        const lineObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    lineFill.style.height = '100%';
+                    lineObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        lineObserver.observe(timelineSplit);
+    }
+
 });
