@@ -301,21 +301,85 @@ section {
 .hero-image-col {
     display: flex;
     justify-content: center;
+    /* [C] Ruang untuk elemen dekoratif ::before & ::after */
+    position: relative;
 }
 
+/* [C] Accent shape — kotak miring di belakang kiri bawah */
+.hero-image-col::before {
+    content: '';
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    background-color: var(--secondary-color);
+    opacity: 0.18;
+    border-radius: 24px;
+    bottom: -20px;
+    left: 10px;
+    transform: rotate(20deg);
+    z-index: 0;
+    animation: floatShape1 6s ease-in-out infinite;
+}
+
+/* [C] Accent shape — lingkaran kecil di kanan atas */
+.hero-image-col::after {
+    content: '';
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    border: 3px solid var(--primary-color);
+    opacity: 0.15;
+    border-radius: 50%;
+    top: 10px;
+    right: 10px;
+    z-index: 0;
+    animation: floatShape2 8s ease-in-out infinite;
+}
+
+@keyframes floatShape1 {
+    0%, 100% { transform: rotate(20deg) translateY(0px); }
+    50%       { transform: rotate(20deg) translateY(-12px); }
+}
+
+@keyframes floatShape2 {
+    0%, 100% { transform: translateY(0px) scale(1); }
+    50%       { transform: translateY(10px) scale(1.08); }
+}
+
+/* [D] Animated gradient border — wrapper luar sebagai "border" */
 .hero-image-wrapper {
+    position: relative;
+    z-index: 1;
     width: 100%;
     max-width: 340px;
     height: 480px;
-    border-top-left-radius: 50vw;
-    border-top-right-radius: 50vw;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+    border-radius: 170px 170px 0 0;
+    padding: 5px; /* ruang untuk gradient border */
+    background: linear-gradient(
+        var(--gradient-angle, 0deg),
+        var(--primary-color),
+        var(--secondary-color),
+        #64b5f6,
+        var(--primary-color)
+    );
+    background-size: 300% 300%;
+    animation: gradientRotate 4s linear infinite;
+    box-shadow: 0 20px 50px rgba(10, 25, 47, 0.25);
+}
+
+@keyframes gradientRotate {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Inner container — memotong gambar agar rapi di dalam border */
+.hero-image-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 165px 165px 0 0;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    border: 8px solid var(--white);
     background-color: var(--secondary-color);
-    /* Fallback */
 }
 
 .hero-image-wrapper img {
@@ -324,6 +388,7 @@ section {
     object-fit: cover;
     object-position: top center;
     transition: transform 0.5s ease;
+    display: block;
 }
 
 .hero-image-wrapper:hover img {
@@ -925,13 +990,15 @@ section {
 
     .hero-image-wrapper {
         max-width: 100%;
-        height: 50vh; /* Dikurangi ~30% dari 80vh */
+        height: 50vh;
         width: 100%;
         position: relative;
         border-radius: 185px 185px 0 0;
-        /* Membuat bagian atas membulat (rounded) */
-        border-width: 0;
-        /* Remove side borders to fit perfectly */
+        padding: 4px;
+    }
+
+    .hero-image-inner {
+        border-radius: 181px 181px 0 0;
     }
 
     .hero-content {
