@@ -1017,3 +1017,219 @@ section {
         flex-direction: column;
     }
 }
+
+/* =========== [4] SCROLL PROGRESS BAR =========== */
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    z-index: 9999;
+    transition: width 0.1s linear;
+    border-radius: 0 2px 2px 0;
+}
+
+/* =========== [2] CUSTOM CURSOR =========== */
+#cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease;
+}
+
+#cursor-outline {
+    width: 36px;
+    height: 36px;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: left 0.12s ease, top 0.12s ease, width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
+    opacity: 0.6;
+}
+
+body:has(a:hover) #cursor-outline,
+body:has(button:hover) #cursor-outline {
+    width: 50px;
+    height: 50px;
+    border-color: var(--secondary-color);
+    opacity: 1;
+}
+
+/* Hide custom cursor on touch devices */
+@media (hover: none) {
+    #cursor-dot, #cursor-outline { display: none; }
+}
+
+/* =========== [1] TYPEWRITER CURSOR BLINK =========== */
+.cursor-blink {
+    display: inline-block;
+    color: var(--secondary-color);
+    font-weight: 300;
+    animation: blink 0.8s step-end infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+}
+
+/* =========== [5] CARD HOVER BORDER GLOW =========== */
+.service-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 0 2px var(--primary-color), 0 12px 30px rgba(10, 25, 47, 0.2);
+}
+
+.service-card:nth-child(2):hover {
+    box-shadow: 0 0 0 2px var(--secondary-color), 0 12px 30px rgba(243, 156, 18, 0.2);
+}
+
+.portfolio-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 0 2px var(--primary-color), 0 12px 30px rgba(10, 25, 47, 0.2);
+}
+
+/* =========== [6] WAVE DIVIDER =========== */
+.wave-divider {
+    line-height: 0;
+    overflow: hidden;
+    margin-bottom: -2px;
+}
+
+.wave-divider svg {
+    display: block;
+    width: 100%;
+    height: 80px;
+}
+
+.wave-light {
+    background-color: #ffffff;
+}
+
+.wave-dark {
+    background-color: var(--light-color);
+}
+
+/* =========== [3] FILTER PILL ANIMATED =========== */
+.portfolio-filters {
+    position: relative;
+    display: inline-flex;
+    background: var(--light-color);
+    border-radius: 50px;
+    padding: 5px;
+    gap: 0;
+    margin-bottom: 40px;
+}
+
+/* Override wrapper agar center */
+#filterContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.portfolio-filters {
+    position: relative;
+    display: inline-flex;
+    background: var(--light-color);
+    border-radius: 50px;
+    padding: 5px;
+    gap: 0;
+}
+
+.filter-pill {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    height: calc(100% - 10px);
+    background-color: var(--primary-color);
+    border-radius: 50px;
+    transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1), width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 0;
+}
+
+.filter-btn {
+    position: relative;
+    z-index: 1;
+    padding: 8px 25px;
+    background: transparent;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text-light);
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    color: var(--white);
+}
+
+/* =========== [7] SKILL TOOLTIP =========== */
+.skill-item {
+    position: relative;
+}
+
+.skill-item::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) scale(0.85);
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 7px 12px;
+    border-radius: 8px;
+    white-space: nowrap;
+    max-width: 220px;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.4;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.skill-item::before {
+    content: '';
+    position: absolute;
+    bottom: calc(100% + 4px);
+    left: 50%;
+    transform: translateX(-50%) scale(0.85);
+    border: 6px solid transparent;
+    border-top-color: var(--primary-color);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    z-index: 100;
+}
+
+.skill-item:hover::after,
+.skill-item:hover::before {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+}

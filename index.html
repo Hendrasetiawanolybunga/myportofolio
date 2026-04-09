@@ -11,6 +11,14 @@
 </head>
 
 <body>
+
+    <!-- [4] Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
+
+    <!-- [2] Custom Cursor -->
+    <div id="cursor-dot"></div>
+    <div id="cursor-outline"></div>
+
     <!-- Header Navigation -->
     <header class="header">
         <nav class="navbar">
@@ -41,8 +49,10 @@
             <!-- Kiri -->
             <div class="hero-content fade-in">
                 <h1 class="hero-name">Hendra S. Oly Bunga S.Kom</h1>
-                <h2 class="hero-title">Menghadirkan Solusi Web Berkinerja Tinggi & Mentoring Pemrograman Berbasis
-                    Logika.</h2>
+                <!-- [1] Typewriter: teks diisi JS, span#typewriter sebagai target -->
+                <h2 class="hero-title">
+                    <span id="typewriter"></span><span class="cursor-blink">|</span>
+                </h2>
                 <div class="hero-buttons">
                     <a href="https://wa.me/6282146128668?text=Halo%20Hendra,%20saya%20tertarik%20untuk%20pembuatan%20web%20UMKM"
                         target="_blank" class="btn btn-primary">
@@ -59,6 +69,13 @@
         </div>
     </section>
 
+    <!-- [6] Wave Divider: Hero → Services -->
+    <div class="wave-divider wave-light">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#ffffff"/>
+        </svg>
+    </div>
+
     <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
@@ -68,10 +85,8 @@
                 <div class="service-card fade-in">
                     <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
                     <h3>Solusi Web UMKM</h3>
-                    <p>
-                        Pembuatan website bisnis dan company profile dengan performa tinggi, responsif, dan siap
-                        membantu digitalisasi UMKM Anda untuk menjangkau lebih banyak pelanggan.
-                    </p>
+                    <p>Pembuatan website bisnis dan company profile dengan performa tinggi, responsif, dan siap
+                        membantu digitalisasi UMKM Anda untuk menjangkau lebih banyak pelanggan.</p>
                     <ul class="service-features">
                         <li><i class="fas fa-check"></i> Desain Modern & Responsif</li>
                         <li><i class="fas fa-check"></i> Optimasi Kecepatan (SEO Friendly)</li>
@@ -82,10 +97,8 @@
                 <div class="service-card fade-in">
                     <div class="service-icon"><i class="fas fa-chalkboard-teacher"></i></div>
                     <h3>Mentoring & Bimbingan TA</h3>
-                    <p>
-                        Berdasarkan prinsip efisiensi akademik <strong>lulus 7 semester</strong>. Saya siap membantu
-                        kelancaran proyek & edukasi IT Anda.
-                    </p>
+                    <p>Berdasarkan prinsip efisiensi akademik <strong>lulus 7 semester</strong>. Saya siap membantu
+                        kelancaran proyek & edukasi IT Anda.</p>
                     <ul class="service-features">
                         <li><i class="fas fa-check"></i> Penyelesaian Bug & Eror Kode</li>
                         <li><i class="fas fa-check"></i> Pendampingan Arsitektur Kode</li>
@@ -96,44 +109,52 @@
         </div>
     </section>
 
+    <!-- [6] Wave Divider: Services → Skills -->
+    <div class="wave-divider wave-dark">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,40 C360,0 1080,80 1440,40 L1440,80 L0,80 Z" fill="#f8f9fa"/>
+        </svg>
+    </div>
+
     <!-- Skills Section -->
     <section id="skills" class="skills bg-light">
         <div class="container">
             <h2 class="section-title fade-in">Tech Stack & Keahlian</h2>
             <div class="skills-grid">
-                <div class="skill-item fade-in">
+                <!-- [7] Tooltip via data-tooltip attribute -->
+                <div class="skill-item fade-in" data-tooltip="Mahir — Fondasi utama semua proyek web">
                     <i class="fab fa-html5 skill-icon" style="color: #E34F26;"></i>
                     <span class="skill-name">HTML</span>
                 </div>
-                <div class="skill-item fade-in">
+                <div class="skill-item fade-in" data-tooltip="Mahir — Styling, animasi, dan layout responsif">
                     <i class="fab fa-css3-alt skill-icon" style="color: #1572B6;"></i>
                     <span class="skill-name">CSS</span>
                 </div>
-                <div class="skill-item fade-in">
+                <div class="skill-item fade-in" data-tooltip="Mahir — Vanilla JS tanpa framework, DOM & logic murni">
                     <i class="fab fa-js skill-icon" style="color: #F7DF1E;"></i>
                     <span class="skill-name">JS Murni</span>
                 </div>
-                <div class="skill-item fade-in">
+                <div class="skill-item fade-in" data-tooltip="Mahir — ERD, normalisasi, dan relasi antar tabel">
                     <i class="fas fa-project-diagram skill-icon" style="color: #8E44AD;"></i>
                     <span class="skill-name">Database Design</span>
                 </div>
-                <div class="skill-item fade-in">
+                <div class="skill-item fade-in" data-tooltip="Mahir — Query, stored procedure, dan optimasi DB">
                     <i class="fas fa-database skill-icon" style="color: #4479A1;"></i>
                     <span class="skill-name">MySQL</span>
                 </div>
-                <div class="skill-item fade-in">
+                <div class="skill-item fade-in" data-tooltip="Menengah — Scripting, OOP, dan data processing">
                     <i class="fab fa-python skill-icon" style="color: #3776AB;"></i>
                     <span class="skill-name">Python</span>
                 </div>
-                <div class="skill-item fade-in">
+                <div class="skill-item fade-in" data-tooltip="Menengah — Backend web dengan Django MVT pattern">
                     <i class="fab fa-python skill-icon" style="color: #092E20;"></i>
                     <span class="skill-name">Django</span>
                 </div>
-                <div class="skill-item fade-in">
+                <div class="skill-item fade-in" data-tooltip="Dasar — OOP dan logika pemrograman terstruktur">
                     <i class="fab fa-java skill-icon" style="color: #007396;"></i>
                     <span class="skill-name">Java</span>
                 </div>
-                <div class="skill-item fade-in">
+                <div class="skill-item fade-in" data-tooltip="Mahir — UML, flowchart, dan arsitektur sistem">
                     <i class="fas fa-sitemap skill-icon" style="color: #27AE60;"></i>
                     <span class="skill-name">Perancangan Sistem</span>
                 </div>
@@ -160,13 +181,21 @@
         </div>
     </section>
 
+    <!-- [6] Wave Divider: Skills → Portfolio -->
+    <div class="wave-divider wave-light">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#ffffff"/>
+        </svg>
+    </div>
+
     <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio">
         <div class="container">
             <h2 class="section-title fade-in">Featured Projects</h2>
 
-            <!-- Portfolio Filter Tabs -->
-            <div class="portfolio-filters fade-in">
+            <!-- [3] Portfolio Filter Tabs dengan animated pill -->
+            <div class="portfolio-filters fade-in" id="filterContainer">
+                <div class="filter-pill" id="filterPill"></div>
                 <button class="filter-btn active" data-filter="all">Semua</button>
                 <button class="filter-btn" data-filter="web-bisnis">Web Bisnis</button>
                 <button class="filter-btn" data-filter="studi-kasus">Studi Kasus Akademik</button>
@@ -183,9 +212,7 @@
                         <h3>Sistem Penyewaan Perlengkapan Acara</h3>
                         <p>Aplikasi manajemen rental untuk inventaris dan pelacakan booking (Sewa perlengkapan).</p>
                         <a href="https://coderntt2.pythonanywhere.com/" target="_blank"
-                            class="portfolio-link btn btn-primary">
-                            View Demo
-                        </a>
+                            class="portfolio-link btn btn-primary">View Demo</a>
                     </div>
                 </div>
 
@@ -199,9 +226,7 @@
                         <h3>Sistem Penjualan & Distribusi Air Minum</h3>
                         <p>Sistem manajemen agen penjualan dengan rute optimasi dan pelacakan pelanggan.</p>
                         <a href="https://coderntt1.pythonanywhere.com/" target="_blank"
-                            class="portfolio-link btn btn-primary">
-                            View Demo
-                        </a>
+                            class="portfolio-link btn btn-primary">View Demo</a>
                     </div>
                 </div>
 
@@ -213,26 +238,27 @@
                     <div class="portfolio-content">
                         <span class="badge">Studi Kasus Akademik</span>
                         <h3>Sistem Pakar Diagnosis Stunting</h3>
-                        <p>Aplikasi implementasi sistem pakar (Expert System) dengan algoritma diagnosa penentu gizi.
-                        </p>
+                        <p>Aplikasi implementasi sistem pakar (Expert System) dengan algoritma diagnosa penentu gizi.</p>
                         <a href="https://marshadotcom.pythonanywhere.com/" target="_blank"
-                            class="portfolio-link btn btn-primary">
-                            View Demo
-                        </a>
+                            class="portfolio-link btn btn-primary">View Demo</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- [6] Wave Divider: Portfolio → Certification -->
+    <div class="wave-divider wave-dark">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,40 C360,0 1080,80 1440,40 L1440,80 L0,80 Z" fill="#f8f9fa"/>
+        </svg>
+    </div>
+
     <!-- Certification Section -->
     <section id="certification" class="certification bg-light">
         <div class="container">
             <h2 class="section-title fade-in">Sertifikasi & Penghargaan</h2>
-
-            <!-- Horizontal Scroll Container -->
             <div class="certifications-slider fade-in">
-                <!-- Sertifikat 1 -->
                 <div class="cert-card">
                     <div class="cert-image">
                         <img src="img/sertifikat/1.jpeg" alt="Alumni Coding Camp DBS Foundation 2025"
@@ -240,11 +266,9 @@
                     </div>
                     <div class="cert-content">
                         <h3>Alumni Coding Camp DBS Foundation 2025</h3>
-                        <a href="img/DOC-20250708-WA0027..pdf" target="_blank" class="cert-link">Lihat Detail <i
-                                class="fas fa-arrow-right"></i></a>
+                        <a href="img/DOC-20250708-WA0027..pdf" target="_blank" class="cert-link">Lihat Detail <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <!-- Sertifikat 2 -->
                 <div class="cert-card">
                     <div class="cert-image">
                         <img src="img/sertifikat/2.jpeg" alt="Sertifikat Asisten Dosen 1"
@@ -252,11 +276,9 @@
                     </div>
                     <div class="cert-content">
                         <h3>Penghargaan Asisten Dosen Semester Ganjil</h3>
-                        <a href="img/sertifikat/2.jpeg" class="cert-link">Lihat Detail <i
-                                class="fas fa-arrow-right"></i></a>
+                        <a href="img/sertifikat/2.jpeg" class="cert-link">Lihat Detail <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <!-- Sertifikat 3 -->
                 <div class="cert-card">
                     <div class="cert-image">
                         <img src="img/sertifikat/3.jpeg" alt="Sertifikat Asisten Dosen 2"
@@ -264,11 +286,9 @@
                     </div>
                     <div class="cert-content">
                         <h3>Penghargaan Asisten Dosen Semester Genap</h3>
-                        <a href="img/sertifikat/3.jpeg" class="cert-link">Lihat Detail <i
-                                class="fas fa-arrow-right"></i></a>
+                        <a href="img/sertifikat/3.jpeg" class="cert-link">Lihat Detail <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <!-- Sertifikat 4 -->
                 <div class="cert-card">
                     <div class="cert-image">
                         <img src="img/sertifikat/4.jpeg" alt="Penghargaan Mahasiswa Berprestasi"
@@ -276,12 +296,10 @@
                     </div>
                     <div class="cert-content">
                         <h3>Penghargaan Mahasiswa Berprestasi</h3>
-                        <a href="img/sertifikat/4.jpeg" class="cert-link">Lihat Detail <i
-                                class="fas fa-arrow-right"></i></a>
+                        <a href="img/sertifikat/4.jpeg" class="cert-link">Lihat Detail <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
-
             <div class="cert-cta fade-in">
                 <a href="https://drive.google.com/drive/folders/1fpKA9Exn_c2ZJ2vLLWM3x5eYT-dPwbZq?usp=sharing"
                     target="_blank" class="btn btn-outline">
@@ -291,12 +309,18 @@
         </div>
     </section>
 
+    <!-- [6] Wave Divider: Certification → Experience -->
+    <div class="wave-divider wave-light">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#ffffff"/>
+        </svg>
+    </div>
+
     <!-- Experience & Education Section -->
     <section id="experience" class="experience">
         <div class="container">
             <h2 class="section-title fade-in">Experience & Education</h2>
             <div class="timeline">
-                <!-- Pengalaman Pekerjaan / Freelance -->
                 <div class="timeline-item fade-in">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
@@ -306,7 +330,6 @@
                             (mentoring) pemrograman mahasiswa untuk membantu kelulusan tepat waktu.</p>
                     </div>
                 </div>
-
                 <div class="timeline-item fade-in">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
@@ -316,8 +339,6 @@
                             optimasi penulisan sintaks program, dan tata evaluasi laboratorium.</p>
                     </div>
                 </div>
-
-                <!-- History Edukasi -->
                 <div class="timeline-item fade-in">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
@@ -327,7 +348,6 @@
                             teknik-teknik fundamental rekayasa perangkat lunak.</p>
                     </div>
                 </div>
-
                 <div class="timeline-item fade-in">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
@@ -337,7 +357,6 @@
                             pada ilmu komputer.</p>
                     </div>
                 </div>
-
                 <div class="timeline-item fade-in">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
@@ -347,7 +366,6 @@
                             terstruktur.</p>
                     </div>
                 </div>
-
                 <div class="timeline-item fade-in">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
@@ -361,6 +379,13 @@
         </div>
     </section>
 
+    <!-- [6] Wave Divider: Experience → Contact -->
+    <div class="wave-divider wave-dark">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,40 C360,0 1080,80 1440,40 L1440,80 L0,80 Z" fill="#f8f9fa"/>
+        </svg>
+    </div>
+
     <!-- Contact Section -->
     <section id="contact" class="contact bg-light">
         <div class="container">
@@ -370,10 +395,10 @@
                     <p>Tertarik untuk menggunakan jasa pembuatan web bisnis atau bimbingan pemrograman? Hubungi saya
                         secepatnya!</p>
                     <div class="social-links">
-                        <a href="https://www.linkedin.com/in/hendra-setiawan17" target="_blank" class="social-link"><i
-                                class="fab fa-linkedin"></i><span>LinkedIn</span></a>
-                        <a href="https://github.com/Hendrasetiawanolybunga" target="_blank" class="social-link"><i
-                                class="fab fa-github"></i><span>GitHub</span></a>
+                        <a href="https://www.linkedin.com/in/hendra-setiawan17" target="_blank" class="social-link">
+                            <i class="fab fa-linkedin"></i><span>LinkedIn</span></a>
+                        <a href="https://github.com/Hendrasetiawanolybunga" target="_blank" class="social-link">
+                            <i class="fab fa-github"></i><span>GitHub</span></a>
                         <a href="https://www.instagram.com/hendrabunga1?igsh=MXVxM2tkZWgwMnllNw==" target="_blank"
                             class="social-link"><i class="fab fa-instagram"></i><span>Instagram</span></a>
                     </div>
