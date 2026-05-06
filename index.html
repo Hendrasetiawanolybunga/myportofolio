@@ -12,6 +12,9 @@
 
 <body>
 
+    <!-- PRELOADER -->
+    <div id="preloader"><div class="spinner"></div></div>
+
     <!-- [4] Scroll Progress Bar -->
     <div id="scroll-progress"></div>
 
@@ -60,11 +63,26 @@
                     </a>
                 </div>
             </div>
-            <!-- Kanan -->
+            <!-- Kanan: Name Tag ID Card -->
             <div class="hero-image-col fade-in">
-                <div class="hero-image-wrapper">
-                    <div class="hero-image-inner">
-                        <img src="img/profil.png" alt="Hendra S. Oly Bunga S.Kom">
+                <div class="nametag-system" id="nametagSystem">
+                    <!-- Tali Lanyard Hitam -->
+                    <div class="lanyard-strap"></div>
+                    <!-- Klip Metal / Besi Pengait -->
+                    <div class="metal-clip-container">
+                        <div class="metal-base"></div>
+                        <div class="metal-ring"></div>
+                    </div>
+                    <!-- Kartu ID (Diperbesar) -->
+                    <div class="nametag-card">
+                        <div class="nametag-hole"></div>
+                        <div class="nametag-photo">
+                            <img src="img/profil.png" alt="Hendra Setiawan">
+                        </div>
+                        <div class="nametag-footer">
+                            <strong>Hendra Setiawan</strong>
+                            <span>coderNTT</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -373,13 +391,11 @@
                 <!-- Item 1 — KIRI — Pekerjaan -->
                 <div class="timeline-row fade-in">
                     <div class="tl-card tl-left">
-                        <!-- [4] Category chip -->
                         <span class="tl-chip chip-work">Pekerjaan</span>
                         <h3>Freelance Web Developer & Programming Mentor</h3>
                         <div class="tl-duration">Present</div>
                         <p>Mengembangkan website fungsional untuk UMKM serta aktif membuka jasa mentoring pemrograman mahasiswa untuk membantu kelulusan tepat waktu.</p>
                     </div>
-                    <!-- [2] Icon Badge -->
                     <div class="tl-badge badge-work">
                         <i class="fas fa-laptop-code"></i>
                     </div>
@@ -468,18 +484,15 @@
     </div>
 
     <!-- Contact Section -->
-    <!-- [D] Dark hero CTA + [E] Animated gradient background -->
     <section id="contact" class="contact contact-dark">
         <div class="contact-aurora"></div>
         <div class="container">
-            <!-- [G] Availability Badge -->
             <div class="availability-badge fade-in">
                 <span class="avail-dot"></span> Available for Work
             </div>
             <h2 class="section-title contact-title fade-in">Mari Berkolaborasi!</h2>
             <p class="contact-subtitle fade-in">Tertarik untuk menggunakan jasa pembuatan web bisnis atau bimbingan pemrograman? Hubungi saya secepatnya!</p>
 
-            <!-- [F] Social Link Cards -->
             <div class="social-cards fade-in">
                 <a href="https://www.linkedin.com/in/hendra-setiawan17" target="_blank" class="social-card social-linkedin">
                     <i class="fab fa-linkedin"></i>

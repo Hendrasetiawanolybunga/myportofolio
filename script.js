@@ -92,12 +92,10 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('mousemove', (e) => {
             cursorDot.style.left = e.clientX + 'px';
             cursorDot.style.top  = e.clientY + 'px';
-            // outline follows with slight lag via CSS transition
             cursorOutline.style.left = e.clientX + 'px';
             cursorOutline.style.top  = e.clientY + 'px';
         });
 
-        // Scale dot on clickable elements
         document.querySelectorAll('a, button, .skill-item, .cert-card').forEach(el => {
             el.addEventListener('mouseenter', () => {
                 cursorDot.style.transform = 'translate(-50%, -50%) scale(1.8)';
@@ -151,7 +149,6 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(type, delay);
         }
 
-        // Start after short delay so page loads first
         setTimeout(type, 600);
     }
 
@@ -168,10 +165,8 @@ document.addEventListener('DOMContentLoaded', () => {
         pill.style.width = btn.offsetWidth + 'px';
     }
 
-    // Init pill on active button
     const activeBtn = document.querySelector('.filter-btn.active');
     if (activeBtn) {
-        // Wait for layout
         requestAnimationFrame(() => movePill(activeBtn));
     }
 
@@ -212,11 +207,16 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => { modalImg.src = ''; }, 300);
     };
 
-    // Overlay "Lihat" button — image type
+    // Overlay "Lihat" button — image type only (PDF dibuka di tab baru via <a>)
     document.querySelectorAll('.open-modal-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             const card = btn.closest('.cert-card');
             const href = card.getAttribute('data-href');
+            const type = card.getAttribute('data-type');
+            if (type === 'pdf') {
+                window.open(href, '_blank');
+                return;
+            }
             modalImg.src = href;
             modal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
@@ -312,4 +312,69 @@ document.addEventListener('DOMContentLoaded', () => {
         lineObserver.observe(timelineSplit);
     }
 
+});
+
+// =============================================
+// PRELOADER + NAMETAG SWING (window.load)
+// =============================================
+window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    const nametagSystem = document.getElementById('nametagSystem');
+
+    // Fade out preloader
+    setTimeout(() => {
+        if (preloader) {
+            preloader.style.opacity = '0';
+            setTimeout(() => {
+                preloader.style.visibility = 'hidden';
+
+                // Trigger swing setelah preloader hilang
+                setTimeout(() => {
+                    if (nametagSystem) {
+                        nametagSystem.classList.add('start-swing');
+                    }
+                }, 200);
+            }, 500);
+        }
+    }, 400);
+});
+
+// =============================================
+// [8] VELOCITY-BASED SCROLL SWAY (Nametag Physics)
+// =============================================
+let lastScrollYPos = window.scrollY;
+let scrollVelocity = 0;
+let swingAngle = 0;
+let swayAnimationId;
+const nametagElem = document.getElementById('nametagSystem');
+
+function applySwayPhysics() {
+    if (!nametagElem) return;
+    // Spring physics (Damping)
+    swingAngle *= 0.92;
+    // Apply rotation
+    nametagElem.style.transform = `rotate(${swingAngle}deg)`;
+    // Keep animating until it rests
+    if (Math.abs(swingAngle) > 0.1 || Math.abs(scrollVelocity) > 0.1) {
+        swayAnimationId = requestAnimationFrame(applySwayPhysics);
+    } else {
+        nametagElem.style.transform = `rotate(0deg)`;
+    }
+}
+
+window.addEventListener('scroll', () => {
+    if (!nametagElem || !nametagElem.classList.contains('start-swing')) return;
+    const currentScrollY = window.scrollY;
+    // Hitung kecepatan scroll (delta)
+    const deltaY = currentScrollY - lastScrollYPos;
+    // Konversi kecepatan menjadi sudut (dibatasi maksimal 15 derajat)
+    scrollVelocity = deltaY * 0.15;
+    swingAngle += scrollVelocity;
+    // Batasi ayunan
+    if (swingAngle > 15)  swingAngle = 15;
+    if (swingAngle < -15) swingAngle = -15;
+    lastScrollYPos = currentScrollY;
+    // Batalkan frame sebelumnya dan mulai yang baru
+    cancelAnimationFrame(swayAnimationId);
+    swayAnimationId = requestAnimationFrame(applySwayPhysics);
 });
